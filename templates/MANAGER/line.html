@@ -1,0 +1,265 @@
+{% extends 'MANAGER/includes/base.html' %}
+
+{% load static %}
+{%block title %}Dashboard{% endblock title %}
+
+{% block content %}
+	<!-- Page main content START -->
+	<div class="page-content-wrapper border">
+
+		<!-- Title -->
+		<div class="row mb-3">
+			<div class="col-12 d-sm-flex justify-content-between align-items-center">
+				<h1 class="h3 mb-2 mb-sm-0">Line Details</h1>
+
+				{% comment %} <a href="admin-edit-course-detail.html" class="btn btn-sm btn-primary mb-0">Edit Course</a> {% endcomment %}
+			</div>
+		</div>
+		<!-- {% comment %}{% include 'includes/messages.html' %}{% endcomment %} -->
+      {% comment %}
+		<div class="col-md-8">
+			<form class="rounded position-relative" method="post">
+				{% csrf_token %}
+				<input class="form-control bg-body" name="search" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+			</form>
+		</div> <br>
+      {% endcomment %}
+		<div class="row g-4">
+
+			
+
+			<!-- Chart START -->
+		
+			<!-- Chart END -->
+
+			<!-- Student review START -->
+			<div class="col-12">
+				<div class="card bg-transparent border">
+
+					<!-- Card header START -->
+					
+					<!-- Card header END -->
+		
+					<!-- Card body START -->
+					<div class="card-body pb-0">
+						<!-- Table START -->
+						<div class="table-responsive border-0">
+							<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+								<!-- Table head -->
+		
+                        <!-- <form action="" method="POST" enctype="multipart/form-data">
+                           {% csrf_token %} -->
+				
+						   {% include 'includes/messages.html' %}
+                          
+                           <table class="table table table-striped">
+                              <thead>
+                                 <tr>
+                                   <th>Line No</th>
+                                   <th> MAN POWER</th>
+                                   <th> TARGET</th>
+                                   <th></th>
+
+                                   <th>9:00 to 10:00</th>
+                                   <th>10:00 to 11:00</th>
+                                   <th>11:00 to 12:00</th>
+                                   <th>12:00 to 01:00</th>
+                                   <th>1:30 to 2:30</th>
+                                   <th>2:30 to 3:30</th>
+                                   <th>3:30 to 4:30</th>
+                                   <th>4:30to 5:30</th>
+								   <th >created_at</th>
+								   <th >updated_at</th>
+
+                                 
+                                 </tr>
+                               </thead>
+								
+							   <tbody>
+
+
+
+
+								{% for i in staff_T %}
+								
+								<!-- 1 -->
+                                
+								<tr>
+                                   <td style="display: fixed;"> 
+                                      <style>
+                                         #name{
+                                          width:7rem;
+                                         }
+                                      </style>
+                                    <input type="text" class="form-control" id="name"  name="asign" value="{{request.user.id}}" hidden> 
+									<input  style="width:7rem;"  type="text" class="form-control" id="name" name="line_no" value="{{i.Line_No}}" required placeholder="Line" readonly>
+								</td>
+                                   <!-- <td  >{{i.Line_id}} </td>
+                                   <td  >{{i.Manpowers}} </td>
+                                   <td  >{{i.Target}} </td> -->
+                                   <!-- <td > <input  style="width:7rem;"  type="number" class="form-control" id="name" name="line_id" value="{{i.Line_id}}" required placeholder="Line no."></td> -->
+								   <td > <input  style="width:7rem;"  type="number" class="form-control" id="name" name="manpower" value="{{i.Manpowers}}" required placeholder="Manpower" readonly></td>
+									<td > <input  style="width:7rem;"  type="number" class="form-control" id="name" name="target" value="{{i.Target}}" required placeholder="Target" readonly></td>
+									</td>
+                                   <!-- <td > <input style="width:7rem;" value="{{i.id}}" type="number" class="form-control" id="name" name="cu_id" required placeholder="Target" hidden ></td> -->
+                                   
+								   <th>INPUT</th>
+                                   <!-- <td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input1" value="{{i.Input_c}}" placeholder="input"></td> -->
+
+                                   <td style="width:1%;"> <input class="form-control"  type="number" id="name"  style="background-color:rgb(232, 252, 239);" name="input1" value="{{i.nine_to_ten_in}}" readonly ></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="number" id="name"  style="background-color:rgb(232, 252, 239);"  name="input2" value="{{i.ten_to_eleven_in}}" readonly></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="number" id="name"  style="background-color:rgb(232, 252, 239);"  name="input3" value="{{i.eleven_to_twelve_in}}" readonly></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="number" id="name"  style="background-color:rgb(232, 252, 239);" name="input4" value="{{i.twelve_to_one_in}}" readonly></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="number" id="name"  style="background-color:rgb(232, 252, 239);" name="input5" value="{{i.one_to_two_in}}" readonly></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="number" id="name"  style="background-color:rgb(232, 252, 239);"  name="input6" value="{{i.two_to_three_in}}"  readonly></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="number" id="name"  style="background-color:rgb(232, 252, 239);"  name="input7" value="{{i.three_to_four_in}}"  readonly></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="number" id="name"  style="background-color:rgb(232, 252, 239);" name="input8" value="{{i.four_to_five_in}}" readonly></td>
+                                   <!-- <td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input8" value="{{i.updated_at}}" placeholder="input"></td> -->
+								   <td>{{i.created_at}}</td>
+								   <td>{{i.updated_at}}</td>
+
+
+                                </tr> 
+                                 
+								<!-- 2 -->
+                                 
+            
+                                 <tr>
+                                   
+                                   <td  style="table-layout:fixed"> </td>
+                                   <td  style="table-layout:fixed"> </td>
+                                   <td  style="table-layout:fixed"> </td>
+                                   <th>OUTPUT</th>
+
+								<!-- <td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input1" value="{{i.Output_c}}" placeholder="Output"></td> -->
+
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input1" value="{{i.nine_to_ten_out}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input2" value="{{i.ten_to_eleven_out}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input3" value="{{i.eleven_to_twelve_out}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input4" value="{{i.twelve_to_one_out}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input5" value="{{i.one_to_two_out}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input6" value="{{i.two_to_three_out}}"  readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input7" value="{{i.three_to_four_out}}"  readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input8" value="{{i.four_to_five_out}}" readonly></td>
+								<td>{{i.created_at}}</td>
+								
+								<td>{{i.updated_at}}</td>
+
+                                 </tr>
+                                 
+								 <!-- 3 -->
+                                 
+								 <tr>
+                                   <td style="table-layout:fixed"> </td>
+                                   <td style="table-layout:fixed"> </td>
+                                   <td style="table-layout:fixed"> </td>
+                                   <th>DISPATCH </th>
+                                   
+								<!-- <td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="dispatch"  value="{{i.Dispatch_c}}" placeholder="Dispatch"></td> -->
+
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input1" value="{{i.nine_to_ten_dis}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input2" value="{{i.ten_to_eleven_dis}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input3" value="{{i.eleven_to_twelve_dis}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input4" value="{{i.twelve_to_one_dis}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input5" value="{{i.one_to_two_dis}}" readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input6" value="{{i.two_to_three_dis}}"  readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input7" value="{{i.three_to_four_dis}}"  readonly></td>
+								<td style="width:1%;"> <input class="form-control"  type="number" id="name"  name="input8" value="{{i.four_to_five_dis}}" readonly></td>
+								<td>{{i.created_at}}</td>
+								
+								<td>{{i.updated_at}}</td>
+								
+                                 </tr>
+								  
+								 <td>
+									<a href="{% url 'supervizor-edit' i.pk %}" class="btn btn btn-info-soft mb-0" type="submit" data-bs-target="#viewReview">Update</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<a href="{% url 'supervizor-data-delete' i.pk %}"><button type="submit"  class="btn btn btn-danger-soft me-1 mb-1 mb-md-0" >Delete</button></a>
+								</td>
+
+
+
+							{%endfor%}
+
+                               </tbody>
+                            </table>
+
+                            <br>
+                            <br>
+                           
+                         
+                           <!-- </form> -->
+								<!-- Table body END -->
+							</table>
+						</div>
+						<!-- Table END -->
+					</div>
+					<!-- Card body END -->
+		
+					<!-- Card footer START -->
+					{% comment %}
+               <div class="card-footer bg-transparent">
+						<!-- Pagination START -->
+						<div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+							<!-- Content -->
+							<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+							<!-- Pagination -->
+							<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+								<ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0">
+									<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+									<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+									<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+									<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
+									<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+								</ul>
+							</nav>
+						</div>
+						<!-- Pagination END -->
+					</div>
+               {% endcomment %}
+					<!-- Card footer END -->
+				</div>
+			</div>
+			<!-- Student review END -->
+
+		</div> <!-- Row END -->
+	</div>
+	<!-- Page main content END -->
+
+</div>
+<!-- Page content END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+
+
+
+
+{% endblock  %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

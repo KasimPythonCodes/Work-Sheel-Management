@@ -1,0 +1,178 @@
+{% extends 'SUPERUSER/superuserincludes/base.html' %}
+
+
+{% block content %}
+<div class="content-body">
+    <div class="container-fluid">
+       
+       <!-- row -->
+       <div class="container-fluid" >
+          <div class="col-lg-12">
+             <div class="profile card card-body px-3 pt-3 pb-0">
+                <div class="profile-head">
+                   <div class="photo-content">
+                      <div class="cover-photo rounded"></div>
+                   </div>
+                   <div class="profile-info">
+                      <div class="profile-photo">
+                         <img src="/media/{{i.profile_pic}}" class="img-fluid rounded-circle" alt="">
+                      </div>
+                      <div class="profile-details">
+                        
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="container-fluid">
+    <div class="card">
+       <div class="card-body">
+         <div class="settings-form">
+             <h4 class="text-primary">Add User</h4>
+       <br>
+             {% if edit %}
+               {% for edit in edit %}
+             <form action="{% url 'supervizor-views-update' %}" method="POST" enctype="multipart/form-data">
+             {% include 'includes/messages.html' %}
+               
+               {% csrf_token %}
+                <div >
+                   <div class="mb-3 cod-md-12 ">
+                      <label class="form-label">Profile Pic</label>
+                      <input type="file" class="form-control" name = "profile_pic" >
+                      <input type="text" class="form-control" name = "id"  value="{{edit.admin.id}}" hidden >
+                      <input type="text" class="form-control" name = "c_id"  value="{{edit.id}}" hidden >
+
+                   </div>
+                   <div class="mb-3 col-md-12">
+                     <label class="form-label">Username</label>
+                     <input type="text"  class="form-control" value = "{{edit.admin.username}}" name="username" required>
+                  </div>
+                   <div class="mb-3 col-md-12">
+                      <label class="form-label">First Name</label>
+                      <input type="text"  class="form-control" value= "{{edit.admin.first_name}}" name="first_name" required>
+                   </div>
+                   <div class="mb-3 col-md-12">
+                      <label class="form-label">Last Name</label>
+                      <input type="text"  class="form-control" value= "{{edit.admin.last_name}}" name = "last_name" required>
+                   </div>
+                </div>
+                <div >
+                   <div class="mb-3 col-md-12">
+                      <label class="form-label"> Email</label>
+                      <input type="email"  class="form-control" value = "{{edit.admin.email}}" name="email" required >
+                   </div>
+                   <div class="mb-3 col-md-12">
+                     <label class="form-label">Designation</label>
+                     <input type="text"  class="form-control" value = "{{edit.designation}}" name="designation" required>
+                  </div>
+                  <div class="mb-3 col-md-12">
+                      <label class="form-label">Password</label>
+                      <input type="password" class="form-control" name="password" >
+                   </div>
+                   
+                </div>
+                <div class = "col-md-6">
+                   <button type="submit" class= "btn btn-primary">Update Supervizor</button>
+                </div>
+                
+             </form>
+
+             {% endfor %}
+             {% endif %}
+          </div>
+          {% comment %} <div class="profile-tab">
+             <div class="custom-tab-1">
+                <ul class="nav nav-tabs">
+                   <li class="nav-item"><a href="#profile-settings" data-bs-toggle="tab" class="nav-link">Setting</a>
+                   </li>
+                </ul>
+                <div class="tab-content">
+                   <div id="profile-settings" class="tab-pane fade">
+                      <div class="pt-3">
+                         <div class="settings-form">
+                            <h4 class="text-primary">Account Setting</h4>
+                            <form>
+                               <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">Old Email</label>
+                                     <input type="email" placeholder="Email" class="form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">Old Password</label>
+                                     <input type="password" placeholder="Password" class="form-control">
+                                  </div>
+                               </div>
+                               <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">New Email</label>
+                                     <input type="email" placeholder="Email" class="form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">Confirm New Email</label>
+                                     <input type="password" placeholder="Password" class="form-control">
+                                  </div>
+                               </div>
+                               <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">New Password</label>
+                                     <input type="email" placeholder="Email" class="form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">Confirm Password</label>
+                                     <input type="password" placeholder="Password" class="form-control">
+                                  </div>
+                               </div>
+                               <div class="mb-3">
+                                  <label class="form-label">Address</label>
+                                  <input type="text" placeholder="1234 Main St" class="form-control">
+                               </div>
+                               <div class="mb-3">
+                                  <label class="form-label">New Address</label>
+                                  <input type="text" placeholder="Apartment, studio, or floor" class="form-control">
+                               </div>
+                               <div class="row">
+                                  <div class="mb-3 col-md-6">
+                                     <label class="form-label">City</label>
+                                     <input type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-4">
+                                     <label class="form-label">State</label>
+                                     <select class="form-control default-select wide" id="inputState">
+                                        <option selected="">Choose...</option>
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                     </select>
+                                  </div>
+                                  <div class="mb-3 col-md-2">
+                                     <label class="form-label">Zip</label>
+                                     <input type="text" class="form-control">
+                                  </div>
+                               </div>
+                               <div class="mb-3">
+                                  <div class="form-check custom-checkbox">
+                                     <input type="checkbox" class="form-check-input" id="gridCheck">
+                                     <label class="form-check-label form-label" for="gridCheck"> Confirm</label>
+                                  </div>
+                               </div>
+                               <button class="btn btn-primary" type="submit">Change Settings
+                               </button>
+                            </form>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div> {% endcomment %}
+       </div>
+    </div>
+ </div>
+ </div>
+ 
+
+
+
+ {% endblock content %}

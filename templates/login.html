@@ -1,0 +1,63 @@
+{% load static %}
+
+{%comment%}
+<div class="container mt-5">
+<form action="{% url 'dologin' %}" method="POST">
+	{% csrf_token %}
+		<div class="form-group">
+		<div class="row">
+		<div class="col-md-3 offset-md-3">
+		<label class="form-label">Email address</label>
+		<input type="text"  class="form-control" value= "" name="email" required>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 offset-md-3">
+			<label class="form-label">Password</label>
+			<input type="text"  class="form-control" value= "" name="password" required>
+		</div>
+</div> <br>
+<div class="row">
+	<div class="col-md-3 offset-md-3">
+		<button class="btn btn-primary " type="submit">Login</button>
+	</div>
+	</div>
+</form>
+</div>
+{%endcomment%}
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Page</title>
+	<link rel="stylesheet" href="{% static './css/logincss.css' %}">
+</head>
+<body>
+	
+	
+<form action="{% url 'dologin' %}" onsubmit="" method="post">
+	{% csrf_token %}
+	{% if messages %}
+	{% for message in messages %}
+	{% if message.tags == 'error' %}
+		{{message}}
+	{% endif %}
+	{% endfor %}
+	{% endif %}
+
+	{%comment%}  
+ 	{% include 'includes/messages.html' %}
+	{%endcomment%}
+
+  <!--   <i class="fa-regular fa-user"></i> -->
+    <input type="text" name="email" placeholder="Email" required/>
+  <!--   <i class="fa-regular fa-eye-slash"></i> -->
+    <input type="password" name="password" placeholder="Password" required/>
+    <button type="submit" ><i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp;Login</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,464 @@
+{% extends 'SUPERUSER/superuserincludes/base.html' %}
+
+{% load static %}
+{%block title %}Add line{% endblock title %}
+
+
+{% block content %}
+	<!-- Page main content START -->
+	<div class="page-content-wrapper border">
+
+		<!-- Title -->
+		<div class="row mb-3">
+			<div class="col-12 d-sm-flex justify-content-between align-items-center">
+				<h1 class="h3 mb-2 mb-sm-0">Add Line</h1>
+				{% comment %} <a href="admin-edit-course-detail.html" class="btn btn-sm btn-primary mb-0">Edit Course</a> {% endcomment %}
+			</div>
+		</div>
+    {% include 'includes/messages.html' %}
+		{% comment %}
+    {% endcomment %}
+      {% comment %}
+		<div class="col-md-8">
+			<form class="rounded position-relative" method="post">
+				{% csrf_token %}
+				<input class="form-control bg-body" name="search" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+			</form>
+		</div> <br>
+      {% endcomment %}
+		<div class="row g-4">
+
+			
+
+			<!-- Chart START -->
+		
+			<!-- Chart END -->
+
+			<!-- Student review START -->
+			<div class="col-12">
+				<div class="card bg-transparent border">
+
+					<!-- Card header START -->
+					
+					<!-- Card header END -->
+		
+					<!-- Card body START -->
+					<div class="card-body pb-0">
+						<!-- Table START -->
+						<div class="table-responsive border-0">
+							<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+								<!-- Table head -->
+								{%comment%}
+                               
+                                <thead>
+									<tr>
+										
+										<th scope="col" class="border-0 rounded-start">#</th>
+										<th scope="col" class="border-0">Line no.</th>
+										<th scope="col" class="border-0">Manpower</th>
+										<th scope="col" class="border-0">Target</th>
+										
+										<th scope="col" class="border-0">Instructor</th>
+										<th scope="col" class="border-0">Course Price</th>
+										<th scope="col" class="border-0">Course Title</th>
+										<th scope="col" class="border-0">Description</th>
+										<th scope="col" class="border-0">Created_at</th>
+										<th scope="col" class="border-0">updated_at</th>
+										<th scope="col" class="border-0 rounded-end">Action</th>
+									</tr>
+								</thead>
+                                {%endcomment%}
+                                {%comment%}
+
+                                <thead>
+                                    <tr>
+                                      <th>Line Number</th>
+                                      <th> MAN POWER</th>
+                                      <th> TARGET</th>
+                                      <th></th>
+                                      <th>9:00 to 10:00</th>
+                                      <th>10:00 to 11:00</th>
+                                      <th>11:00 to 12:00</th>
+                                      <th>12:00 to 01:00</th>
+                                      <th>1:30 to 2:30</th>
+                                      <th>2:30 to 3:30</th>
+                                      <th>3:30 to 4:30</th>
+                                      <th>4:30to 5:30</th>
+                                      <th >Created_at</th>
+										<th >updated_at</th>
+										<th >Action</th>
+                                    </tr>
+                                  </thead>
+                                {%endcomment%}
+
+
+                                {% csrf_token %}
+              
+                                <!-- <table class="table table table-striped"> -->
+                                   {%comment%}
+                                    <thead>
+                                      <tr>
+                                        <th>Line Number</th>
+                                        <th> MAN POWER</th>
+                                        <th> TARGET</th>
+                                        <th></th>
+                                        <th>9:00 to 10:00</th>
+                                        <th>10:00 to 11:00</th>
+                                        <th>11:00 to 12:00</th>
+                                        <th>12:00 to 01:00</th>
+                                        <th>1:30 to 2:30</th>
+                                        <th>2:30 to 3:30</th>
+                                        <th>3:30 to 4:30</th>
+                                        <th>4:30to 5:30</th>
+                                      
+                                      </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {% for i in staff_T %}
+                                      <tr>
+                                        <!-- <td>1</td> -->
+                                        <!-- 1 -->
+                                        <style>
+                                            .demoh1{
+                                                display: fixed;
+                                            }
+                                        </style>
+                                        <td  class="demoh1"> {{forloop.counter}}
+                                         <!-- <input type="" disabled class="form-control" id="name"  name="line" required  > -->
+                                      </td>
+                                      <td>{{i.Manpowers}}</td>
+                                        <td > {{i.Target}}</td>
+                                        <th>input</th> 
+                                         {%for j in in_T %}
+                                         <td style="width:1%;">{{j.one_time_in}} </td>
+                                        <td style="width:1%;">{{j.two_time_in}}  </td>
+                                        <td style="width:1%;">{{j.tree_time_in}}  </td>
+                                        <td style="width:1%;">{{j.four_time_in}}  </td>
+                                        <td style="width:1%;">{{j.five_time_in}}  </td>
+                                        <td style="width:1%;">{{j.six_time_in}}  </td>
+                                        <td style="width:1%;">{{j.seven_time_in}}  </td>
+                                        <td style="width:1%;">{{j.eight_time_in}}  </td>
+                                        <td style="width:1%;">{{i.created_at}}</td>
+                                        <td style="width:1%;">{{i.updated_at}} </td>
+                                      {%endfor%}
+                                      </tr> 
+                                    {%endfor%}
+
+
+                                      <!-- 2 -->
+                                      
+                 
+                                      <tr>
+                                        
+                                        <td  style="table-layout:fixed"> </td>
+                                        <td  style="table-layout:fixed"> </td>
+                                        <td  style="table-layout:fixed"> </td>
+                                        <th>OUTPUT</th>
+                                        {%for k in out_T %}
+                                        <td style="width:1%;">{{k.one_time_out}} </td>
+                                       <td style="width:1%;">{{k.two_time_out}}  </td>
+                                       <td style="width:1%;">{{k.tree_time_out}}  </td>
+                                       <td style="width:1%;">{{k.four_time_out}}  </td>
+                                       <td style="width:1%;">{{k.five_time_out}}  </td>
+                                       <td style="width:1%;">{{k.six_time_out}}  </td>
+                                       <td style="width:1%;">{{k.seven_time_out}}  </td>
+                                       <td style="width:1%;">{{k.eight_time_out}}  </td>
+                                     {%endfor%}
+                                      </tr>
+                                      <!-- 3 -->
+                                      <tr>
+                                        <td style="table-layout:fixed"> </td>
+                                        <td style="table-layout:fixed"> </td>
+                                        <td style="table-layout:fixed"> </td>
+                                        
+                                        <th>DISPATCH </th>
+                                        <!-- <th>DISPATCH </th> -->
+                                        
+                                        {%for l in dis_T %}
+                                        <td style="width:1%;">{{l.one_time_dis}} </td>
+                                       <td style="width:1%;">{{l.two_time_dis}}  </td>
+                                       <td style="width:1%;">{{l.tree_time_dis}}  </td>
+                                       <td style="width:1%;">{{l.four_time_dis}}  </td>
+                                       <td style="width:1%;">{{l.five_time_dis}}  </td>
+                                       <td style="width:1%;">{{l.six_time_dis}}  </td>
+                                       <td style="width:1%;">{{l.seven_time_dis}}  </td>
+                                       <td style="width:1%;">{{l.eight_time_dis}}  </td>
+                                     {%endfor%}
+
+                                      </tr>
+                                      <!-- 4 -->
+                                     
+                                
+                                    </tbody>
+
+                                 <!-- </table> -->
+                                 <!-- <div class = "col-md-12" style="text-align:center">
+                                    <button type="submit" class= "btn btn-primary">Add Line</button>
+                                 </div> -->
+		
+								<!-- Table body START -->
+								<tbody>
+									{% for course in course %}
+									<!-- Table row -->
+									<tr>
+										<!-- Table data -->
+										<!-- Table data -->
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{forloop.counter}}</h6>
+										</td>
+
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{course.couse_category}}</h6>
+										</td>
+										
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0"> <img src="/media/{{course.profile_course_pic}}"
+												 width="30" height="30" alt="kasim saifi">
+											</h6>
+										</td>
+
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{course.course_name}}</h6>
+										</td>
+										
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{course.staff_id}}</h6>
+										</td>
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{course.course_price}}</h6>
+										</td>
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{course.course_title}}</h6>
+										</td>
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{course.course_description}}</h6>
+										</td>
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{course.created_at}}</h6>
+										</td>
+										<td class="text-center text-sm-start">
+											<h6 class="mb-0">{{course.updated_at}}</h6>
+										</td>
+		
+										<!-- Table data -->
+										
+		
+										<!-- Table data -->
+										<td>
+											<a href="{% url 'edit_course' course.pk %}" class="btn btn-sm btn-info-soft mb-0" data-bs-target="#viewReview">Edit</a>
+											<a href="{% url 'delete_course' course.pk %}"><button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Delete</button></a>
+											
+										</td>
+									</tr>
+		
+									<!-- Table row -->
+									
+									<!-- Table row -->
+									
+									<!-- Table row -->
+									
+		
+									<!-- Table row -->
+									{% endfor %}
+								</tbody>
+
+                    {%endcomment%}
+
+                        <form action="" method="POST" enctype="multipart/form-data">
+                           {% csrf_token %}
+                         <div class="mb-3 col-md-12">
+                        <label class="form-label">Supervizor Name</label> 
+                        <select class="form-select" aria-label="Default select example" name="all_user_id" required>
+                            <option selected>Select Supervizor </option>
+                            {% for i in siid  %} 
+                          <option value="{{i.id}}"  >{{i.admin.first_name}} {{i.admin.last_name}} </option> 
+                          {% comment %}<option value="">{{i.id}}</option> {% endcomment %}
+							
+                            {% endfor %} 
+                          </select>
+                       </div>
+                           <div class="mb-3 col-md-12">
+                            <label class="form-label">Line </label>
+                            <input type="text"  class="form-control" id="name"  name="line_no" required  >
+                         </div>
+                         <div class="mb-3 col-md-12">
+                            <label class="form-label">Manpower</label>
+                            <input type="text"  name="manpower" required class="form-control"  >
+                         </div>
+                      </div>
+                      <div >
+                         <div class="mb-3 col-md-12">
+                            <label class="form-label">Target</label>
+                            <input type="text"  class="form-control" id="name"  name="target" required  >
+                         </div>
+
+                         {% comment %}
+                           
+                           <table class="table table table-striped">
+                              <thead>
+                                 <tr>
+                                   <th>Line No</th>
+                                   <th> MAN POWER</th>
+                                   <th> TARGET</th>
+                                   <th></th>
+                                   <th>9:00 to 10:00</th>
+                                   <th>10:00 to 11:00</th>
+                                   <th>11:00 to 12:00</th>
+                                   <th>12:00 to 01:00</th>
+                                   <th>1:30 to 2:30</th>
+                                   <th>2:30 to 3:30</th>
+                                   <th>3:30 to 4:30</th>
+                                   <th>4:30to 5:30</th>
+                                 
+                                 </tr>
+                               </thead>
+                               <tbody>
+                                 <tr>
+                           
+                                   <!-- <td>1</td> -->
+                                   <!-- 1 -->
+                                   <td style="display: fixed;"> 
+                                      <style>
+                                         #name{
+                                          width:7rem;
+                                         }
+                                      </style>
+                                    <input type="text"  class="form-control" id="name"  name="line_no" required  >
+                                    <!-- <input type="number"  class="form-control" id="name"  name="line_id" hidden> -->
+
+                                 </td>
+
+
+
+
+                                   <td  style="width:1%;"> <input style="width:7rem;" type="text" class="form-control" id="name" name="manpower" required placeholder="Manpower"></td>
+                                   <td > <input style="width:7rem;"  type="text" class="form-control" id="name" name="target" required placeholder="Target"></td>
+                                   
+                                   
+                                   
+                                     
+                                   <th>INPUT</th> 
+
+                                   <!-- <td style="width:1%;"> <input class="form-control"  type="number" id="name" name="input"  placeholder="input"></td> -->
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="input1"  placeholder="input"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="input2"  placeholder="input"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="input3"  placeholder="input"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="input4"  placeholder="input"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="input5"  placeholder="input"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="input6"  placeholder="input"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="input7"  placeholder="input"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="input8"  placeholder="input"></td>
+                                
+                                 </tr> 
+                                 <!-- 2 -->
+                                 
+            
+                                 <tr>
+                                   
+                                   <td  style="table-layout:fixed"> </td>
+                                   <td  style="table-layout:fixed"> </td>
+                                   <td  style="table-layout:fixed"> </td>
+                                   <th>OUTPUT</th>
+                                   <!-- <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output"  placeholder="Output"></td> -->
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output1"  placeholder="Output"></td>
+                                    <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output2"  placeholder="Output"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output3"  placeholder="Output"></td>
+                                   
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output4"  placeholder="Output"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output5"  placeholder="Output"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output6"  placeholder="Output"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output7"  placeholder="Output"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="output8"  placeholder="Output"></td>
+                                 
+                                 </tr>
+                                 <!-- 3 -->
+                                 <tr>
+                                   <td style="table-layout:fixed"> </td>
+                                   <td style="table-layout:fixed"> </td>
+                                   <td style="table-layout:fixed"> </td>
+                                   <th>DISPATCH </th>
+                                   <!-- <th>DISPATCH </th> -->
+                                   <!-- <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch"  placeholder="Dispatch"> -->
+            
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch1"  placeholder="Dispatch">
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch2"  placeholder="Dispatch"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch3"  placeholder="Dispatch"></td>
+                                   
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch4"  placeholder="Dispatch"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch5"  placeholder="Dispatch"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch6"  placeholder="Dispatch"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch7"  placeholder="Dispatch"></td>
+                                   <td style="width:1%;"> <input class="form-control"  type="text" id="name" name="dispatch8"  placeholder="Dispatch"></td>
+                                 
+                                 </tr>
+                                 <!-- 4 -->
+                                
+                           
+                               </tbody>
+                            </table>
+                            {% endcomment %}
+
+                            
+                            <div class = "col-md-12" style="text-align:center">
+                               <button type="submit" class= "btn btn-primary">Add Line</button>
+                            </div>
+                            <br>
+                            <br>
+                           
+                         
+                           </form>
+								<!-- Table body END -->
+							</table>
+						</div>
+						<!-- Table END -->
+					</div>
+					<!-- Card body END -->
+		
+					<!-- Card footer START -->
+					{% comment %}
+               <div class="card-footer bg-transparent">
+						<!-- Pagination START -->
+						<div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+							<!-- Content -->
+							<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+							<!-- Pagination -->
+							<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+								<ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0">
+									<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+									<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+									<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+									<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
+									<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+								</ul>
+							</nav>
+						</div>
+						<!-- Pagination END -->
+					</div>
+               {% endcomment %}
+					<!-- Card footer END -->
+				</div>
+			</div>
+			<!-- Student review END -->
+
+		</div> <!-- Row END -->
+	</div>
+	<!-- Page main content END -->
+
+</div>
+<!-- Page content END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+
+
+
+
+{% endblock  %}
+
+
+
+
+
