@@ -28,6 +28,8 @@ class Supervizor(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return self.admin
     # def __str__(self):
     #     return str(  self.admin.first_name + " " + self.admin.last_name  ) and self.id
     
